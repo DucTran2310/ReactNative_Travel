@@ -3,6 +3,8 @@ import React, { useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { Avatar } from '../assets';
+import {API_KEY} from '@env'
+
 
 const Discover = () => {
 
@@ -13,6 +15,8 @@ const Discover = () => {
             headerShown: false,
         });
     }, []);
+
+    console.log("VVVENV",process.env['API_KEY'])
 
     return (
         <SafeAreaView className="flex-1 bg-white relative">
@@ -44,11 +48,14 @@ const Discover = () => {
                         // setTr_lng(details?.geometry?.viewport?.northeast?.lng);
                     }}
                     query={{
-                        key: "AIzaSyAzT-e099XurjpS7q9uV3pnXO-PR0NcnvM",
+                        key: process.env.API_KEY,
                         language: 'en',
                     }}
                 />
             </View>
+
+            {/* Menu container */}
+
         </SafeAreaView>
     )
 }
